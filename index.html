@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>minimini</title>
+<meta name="description" content="minimini">
+<style>
+  :root {
+    --ink: #16151a;
+    --paper: #f7f5f2;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body { height: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Helvetica Neue", Helvetica, -apple-system, BlinkMacSystemFont,
+                 "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+                 Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .wordmark {
+    margin: 0;
+    font-size: clamp(3.5rem, 18vw, 16rem);
+    font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+    text-align: center;
+    user-select: none;
+    background: linear-gradient(180deg, #2b2a31 0%, #16151a 70%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: rise .8s cubic-bezier(.2, .7, .2, 1) both;
+  }
+
+  .dot {
+    display: inline-block;
+    width: .22em;
+    height: .22em;
+    margin-left: .04em;
+    border-radius: 50%;
+    background: #d8482f;
+    transform: translateY(-.42em);
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    animation: pop .5s .5s cubic-bezier(.2, .9, .2, 1) both;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(.18em); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  @keyframes pop {
+    from { opacity: 0; transform: translateY(-.42em) scale(0); }
+    to   { opacity: 1; transform: translateY(-.42em) scale(1); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wordmark, .dot { animation: none; }
+  }
+</style>
+</head>
+<body>
+  <h1 class="wordmark">minimini<span class="dot"></span></h1>
+</body>
+</html>
